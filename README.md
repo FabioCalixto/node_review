@@ -7,3 +7,5 @@ Gerenciar as requisições , rotas e URLs, entre outras funcionalidades
 
 Rodar o projecto
 ### node app.js
+Instalar o modulo para reiniciar o servidor automaticamente
+###  npm install -g nodemon
