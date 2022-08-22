@@ -4,3 +4,6 @@ Criar o arquivo package
 
 Gerenciar as requisições , rotas e URLs, entre outras funcionalidades
 ## npm install express
+
+Rodar o projecto
+### node app.js
