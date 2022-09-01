@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+app.use(express.json());
 
 app.get("/", (req, res) => {
     res.send("Olá Mundo");
@@ -17,6 +18,15 @@ app.get("/contatos/:id", (req, res) => {
     });
 
 } );
+
+app.post("/contatos", (req, res) =>{
+    var {nome} = req.body;
+     var {email} = req.body;
+    return res.json({
+        nome,
+        email
+    });
+});
 
 app.listen(8080, () => {
 
