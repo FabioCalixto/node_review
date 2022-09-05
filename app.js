@@ -28,6 +28,20 @@ app.post("/contatos", (req, res) =>{
     });
 });
 
+app.put("/contatos/:id", (req, res) => {
+    const {id} = req.params;
+    var {nome} = req.body;
+    var {email} = req.body;
+
+    return res.json({
+        id,
+        nome,
+        email
+    });
+
+});
+
+
 app.listen(8080, () => {
 
     console.log("Servidor Inciado na porta 8080");
