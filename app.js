@@ -2,7 +2,16 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 
+app.use((req, res, next) =>{
+    console.log("Acessou o Middlewares");
+    next();
+
+
+});
+
+
 app.get("/", (req, res) => {
+    console.log("Acessou o Listar");
     res.send("Olá Mundo");
 
 } );
@@ -41,6 +50,15 @@ app.put("/contatos/:id", (req, res) => {
 
 });
 
+
+app.delete("/contatos/:id", (req, res) => {
+    const {id} = req.params;
+    
+    return res.json({
+        id
+    });
+
+});
 
 app.listen(8080, () => {
 
