@@ -12,3 +12,9 @@ Instalar o modulo para reiniciar o servidor automaticamente
 
 Rodar o projecto com o nodemon
 ## nodemon app.js
+
+Dependencia para conectar Node com Mysql 
+###  npm install --save sequelize
+
+Instalar o drive do banco de dados
+### npm install --save mysql2
