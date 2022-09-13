@@ -2,16 +2,29 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 
+/*
 app.use((req, res, next) =>{
     console.log("Acessou o Middlewares");
     next();
 
+});*/
 
-});
+function valContato(req, res, next){
+    if(!req.body.email){
+        return res.json({
+            erro: true,
+            mensagem: "Necessário enviar o e-mail!"
+        });
+    };
+
+    return next();
+
+
+}; 
 
 
 app.get("/", (req, res) => {
-    console.log("Acessou o Listar");
+
     res.send("Olá Mundo");
 
 } );
@@ -28,7 +41,7 @@ app.get("/contatos/:id", (req, res) => {
 
 } );
 
-app.post("/contatos", (req, res) =>{
+app.post("/contatos", valContato, (req, res) =>{
     var {nome} = req.body;
      var {email} = req.body;
     return res.json({
@@ -37,7 +50,7 @@ app.post("/contatos", (req, res) =>{
     });
 });
 
-app.put("/contatos/:id", (req, res) => {
+app.put("/contatos/:id", valContato, (req, res) => {
     const {id} = req.params;
     var {nome} = req.body;
     var {email} = req.body;
